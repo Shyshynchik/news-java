@@ -7,6 +7,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.sql.Date;
 import java.util.Objects;
@@ -14,6 +15,7 @@ import java.util.Objects;
 @Entity
 @Getter
 @Setter
+@ToString
 @Table(name = "articles", schema = "public", catalog = "news")
 public class Article {
     @GeneratedValue(strategy = GenerationType.IDENTITY)

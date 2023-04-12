@@ -1,5 +1,6 @@
 package com.newsline.newsline.controller;
 
+import com.newsline.newsline.dto.ArticleDto;
 import com.newsline.newsline.model.Article;
 import com.newsline.newsline.service.ArticleService;
 import jakarta.validation.Valid;
@@ -15,7 +16,7 @@ import java.util.List;
 public class NewsController {
 
 
-    private ArticleService articleService;
+    private final ArticleService articleService;
 
     public NewsController(ArticleService articleService) {
         this.articleService = articleService;
@@ -33,14 +34,25 @@ public class NewsController {
 
     @PostMapping("/create")
     public ResponseEntity<String> createArticle(@Validated @RequestBody Article article) {
-        articleService.create(article);
-        return new ResponseEntity<>("Created", HttpStatus.OK);
+        if (articleService.create(article)) {
+            return new ResponseEntity<>("Created", HttpStatus.OK);
+        }
+        return new ResponseEntity<>("File already exists", HttpStatus.BAD_REQUEST);
     }
 
     @RequestMapping(path = "/delete/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<String> deleteArticle(@PathVariable(name = "id") int id) {
         var test = articleService.deleteArticle(id);
         return new ResponseEntity<>("DELETED " + test, HttpStatus.OK);
+    }
+
+    @RequestMapping(path = "/update/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<String> updateArticle(@PathVariable(name = "id") int id, @RequestBody ArticleDto articleDto) {
+        if (articleService.update(articleDto, id)) {
+            return new ResponseEntity<>("Updated", HttpStatus.OK);
+        }
+
+        return new ResponseEntity<>("File doesn't exists", HttpStatus.BAD_REQUEST);
     }
 
 }

@@ -11,8 +11,16 @@ Content-Type: application/json
   "date": "2023-03-31",
   "annotation": "Аннотация 666",
   "body": "Текст статьи 666",
-  "counter": "ssad"
+  "counter": "123"
 }
 ###
-DELETE localhost:8081/api/v1/articles/delete/20
+DELETE localhost:8081/api/v1/articles/delete/7
+###
+PUT localhost:8081/api/v1/articles/update/1
+Accept: application/json
+Content-Type: application/json
+
+{
+  "title": "2021-03-31"
+}
 

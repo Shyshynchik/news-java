@@ -1,5 +1,6 @@
 package com.newsline.newsline.service;
 
+import com.newsline.newsline.dto.ArticleDto;
 import com.newsline.newsline.model.Article;
 import org.springframework.stereotype.Service;
 
@@ -17,4 +18,6 @@ public interface ArticleService {
     boolean isExistedById(int id);
 
     long deleteArticle(int id);
+
+    boolean update(ArticleDto articleDto, int id);
 }
