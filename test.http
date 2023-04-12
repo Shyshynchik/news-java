@@ -1,0 +1,18 @@
+GET localhost:8081/api/v1/articles/get/1
+###
+GET localhost:8081/api/v1/articles/all
+###
+POST localhost:8081/api/v1/articles/create
+Accept: application/json
+Content-Type: application/json
+
+{
+  "title": "new Title",
+  "date": "2023-03-31",
+  "annotation": "Аннотация 666",
+  "body": "Текст статьи 666",
+  "counter": "ssad"
+}
+###
+DELETE localhost:8081/api/v1/articles/delete/20
+
