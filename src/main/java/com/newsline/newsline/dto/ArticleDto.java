@@ -1,10 +1,10 @@
 package com.newsline.newsline.dto;
 
-import lombok.Getter;
+import lombok.Data;
 
 import java.sql.Date;
 
-@Getter
+@Data
 public class ArticleDto {
 
     private int id;

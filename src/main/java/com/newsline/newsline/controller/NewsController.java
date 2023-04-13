@@ -3,7 +3,6 @@ package com.newsline.newsline.controller;
 import com.newsline.newsline.dto.ArticleDto;
 import com.newsline.newsline.model.Article;
 import com.newsline.newsline.service.ArticleService;
-import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
