@@ -20,4 +20,6 @@ public interface ArticleService {
     long deleteArticle(int id);
 
     boolean update(ArticleDto articleDto, int id);
+
+    List<Article> getArticlesByTitle(String title);
 }

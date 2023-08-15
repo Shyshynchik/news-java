@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
+
 
 @Repository
 public interface ArticleRepository extends JpaRepository<Article, Integer> {
@@ -17,4 +17,6 @@ public interface ArticleRepository extends JpaRepository<Article, Integer> {
 
     @Transactional
     long removeById(int id);
+
+    List<Article> findArticlesByTitle(String title);
 }

@@ -5,10 +5,6 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.security.core.GrantedAuthority;
-
-import java.util.Collection;
-import java.util.Set;
 
 @Entity
 @Table(name = "users")

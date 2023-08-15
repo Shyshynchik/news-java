@@ -72,4 +72,9 @@ public class ArticleServiceImpl implements ArticleService {
     public long deleteArticle(int id) {
         return articleRepository.removeById(id);
     }
+
+    @Override
+    public List<Article> getArticlesByTitle(String title) {
+        return articleRepository.findArticlesByTitle(title);
+    }
 }

@@ -3,6 +3,7 @@ package com.newsline.newsline.controller;
 import com.newsline.newsline.dto.ArticleDto;
 import com.newsline.newsline.model.Article;
 import com.newsline.newsline.service.ArticleService;
+import com.newsline.newsline.service.KafkaService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -16,14 +17,24 @@ public class NewsController {
 
 
     private final ArticleService articleService;
+    private final KafkaService kafkaService;
 
-    public NewsController(ArticleService articleService) {
+    public NewsController(ArticleService articleService, KafkaService kafkaService) {
         this.articleService = articleService;
+        this.kafkaService = kafkaService;
     }
 
     @GetMapping("/get/{id}")
     public @ResponseBody Article getArticleById(@PathVariable(name = "id") int id) {
+        var article = articleService.getArticleById(id);
+
+        kafkaService.send(article);
+
         return articleService.getArticleById(id);
+    }
+
+    public @ResponseBody List<Article> getArticlesByTitle(@PathVariable(name = "title") String title) {
+        return articleService.getArticlesByTitle(title);
     }
 
     @GetMapping("/all")

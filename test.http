@@ -1,11 +1,13 @@
-GET localhost:8081/api/v1/articles/get/1
+GET localhost:8081/api/v1/articles/get/17
+Authorization: test1
 ###
 GET localhost:8081/api/v1/articles/all
-Authorization: test2
+Authorization: test1
 ###
 POST localhost:8081/api/v1/articles/create
 Accept: application/json
 Content-Type: application/json
+Authorization: test1
 
 {
   "title": "new Title",
@@ -16,8 +18,10 @@ Content-Type: application/json
 }
 ###
 DELETE localhost:8081/api/v1/articles/delete/7
+Authorization: test1
 ###
 PUT localhost:8081/api/v1/articles/update/1
+Authorization: test1
 Accept: application/json
 Content-Type: application/json
 

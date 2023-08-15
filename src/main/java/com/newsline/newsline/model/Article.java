@@ -26,25 +26,25 @@ public class Article {
     @Basic
     @Column(name = "title", nullable = false)
     @NotNull(message = "title must be written")
-    @JsonProperty("title")
+//    @JsonProperty("title")
     private String title;
 
     @Basic
     @Column(name = "date")
-    @JsonProperty("date")
+//    @JsonProperty("date")
     private Date date;
     @Basic
     @Column(name = "annotation")
-    @JsonProperty("annotation")
+//    @JsonProperty("annotation")
     private String annotation;
     @Basic
     @Column(name = "body")
-    @JsonProperty("body")
+//    @JsonProperty("body")
     private String body;
     @Basic
     @Column(name = "counter")
-    @JsonProperty(value = "counter")
-    @JsonDeserialize(using = IntegerDeserializer.class)
+//    @JsonProperty(value = "counter")
+//    @JsonDeserialize(using = IntegerDeserializer.class)
     private Integer counter;
 
     @Override
